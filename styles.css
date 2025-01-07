@@ -1,0 +1,302 @@
+/* General styles for the entire page */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+  padding: 2rem;
+}
+
+/* Container for the main content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  gap: 2rem; /* Space between the columns */
+  padding: 10px;
+}
+
+/* Styles for the editor section */
+.editor-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.editor-section:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Styles for the preview section */
+.preview-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Keep the preview section fixed when scrolling */
+  top: 2rem; /* Distance from the top of the viewport */
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Label styles */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #374151; /* Dark gray color for labels */
+  font-weight: 500;
+}
+
+/* Input, select, and textarea styles */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s; /* Smooth transition for focus state */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ea580c; /* Orange border color on focus */
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1); /* Subtle orange glow on focus */
+}
+
+/* Styles for the photo upload area */
+.photo-upload {
+  border: 2px dashed #d1d5db;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.photo-upload:hover {
+  border-color: #ea580c; /* Orange border color on hover */
+  background: #fff8f6; /* Light orange background on hover */
+}
+
+/* Styles for the live camera capture container */
+.live-capture-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Styles for the camera container */
+#cameraContainer {
+  margin-top: 1rem;
+}
+
+/* Styles for the camera video element */
+#camera {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+/* Styles for the photo preview area */
+.photo-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Make it circular */
+  margin: 1rem auto;
+  background: #f3f4f6;
+  overflow: hidden;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+/* Button styles */
+.button {
+  background: #ea580c; /* Orange background color */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s; /* Smooth transition on hover */
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background: #c2410c; /* Darker orange on hover */
+}
+
+/* ID card styles */
+.id-card {
+  width: 380px;
+  height: 600px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.id-card-side {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ID card header styles */
+.id-card-header {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); /* Orange gradient */
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+/* ID card content styles */
+.id-card-content {
+  padding: 20px;
+}
+
+
+/* Popup styles (for the admin panel) */
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  /* Ensure it's on top */
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  width: 900px;
+  max-width: 98%;
+  resize: both;
+  overflow: auto;
+}
+
+.popup-content {
+  position: relative;
+}
+
+/* Close button styles for the popup */
+.closeBtn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #f44336;
+  /* Red background */
+  color: white;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Admin panel styles */
+#adminPanel {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Employee data table styles */
+#employeeDataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#employeeDataTable th,
+#employeeDataTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+#employeeDataTable td:nth-child(5) {
+  width: 30%;
+}
+
+#employeeDataTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Admin panel exit button styles */
+.admin-panel-exit {
+  background: #ea580c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  display: block;
+  width: auto;
+}
+
+.admin-panel-exit:hover {
+  background: #c2410c;
+}
+
+/* Media query for responsiveness (adjust styles for smaller screens) */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    /* Single column layout on smaller screens */
+  }
+
+  .editor-section {
+    padding: 1rem;
+  }
+
+  .preview-section {
+    padding: 1rem;
+  }
+
+  .id-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .modal-dialog {
+    max-width: 95vw;
+    margin: 10vh auto;
+  }
+
+  .img-container {
+    max-height: 70vh;
+  }
+}

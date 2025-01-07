@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amarshree Foundation - ID Card Generator</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="editor-section">
+      <button type="button" id="openAdminBtn" class="button">Admin</button>
+
+      <h2>Enter Employee Details</h2>
+      <form id="employeeForm">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input type="text" id="designation" placeholder="Enter your designation" required>
+        </div>
+        <div class="form-group">
+          <label for="bloodGroup">Blood Group:</label>
+          <select id="bloodGroup" required>
+            <option value="">Select Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone No.:</label>
+          <input type="tel" id="phone" placeholder="Enter phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" placeholder="Enter address" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="form-group photo-upload">
+          <label for="imageUpload">Upload Photo:</label>
+          <input type="file" id="imageUpload" accept="image/*">
+          <img id="imagePreview" src="#" alt="Image Preview"
+            style="display: none; max-width: 200px; margin-top: 10px;">
+        </div>
+
+        <div class="live-capture-container">
+          <button type="button" id="toggleLiveCapture" class="button">Use Live Capture</button>
+          <div id="cameraContainer" style="display: none;">
+            <video id="camera" autoplay></video>
+            <button type="button" id="takePhotoBtn" class="button">Take Photo</button>
+            <button type="button" id="closeCameraBtn" class="button">Close Camera</button>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="button" id="generateBtn">Generate ID Card</button>
+          <button type="button" class="button" id="downloadBtn" disabled>Download ID Card</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="preview-section">
+      <h2>Preview ID Card</h2>
+      <div id="virtualId" class="id-card">
+        <div id="idCardFront" class="id-card-side">
+          <div class="id-card-header">
+            <h2>Amarshree Foundation</h2>
+            <p>Reg. E-/2308/Thane</p>
+          </div>
+          <div class="id-card-content">
+            <div class="photo-preview">
+              <img id="profilePic" src="#" alt="Profile Picture">
+            </div>
+            <h3 id="displayName"></h3>
+            <p id="displayDesignation"></p>
+            <p><strong>Blood Group:</strong> <span id="displayBloodGroup"></span></p>
+            <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cropModal" tabindex="-1" aria-labelledby="cropModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cropModalLabel">Crop Image</h5>
+        </div>
+        <div class="modal-body">
+          <div class="img-container">
+            <img id="imageToCrop" src="#" alt="Picture">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="cropBtn">Crop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script> </body>
+
+</html>
